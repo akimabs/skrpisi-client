@@ -1,0 +1,3 @@
+export const REDUX_TYPE = {
+  STORE_USER_DATA: 'STORE_USER_DATA',
+};

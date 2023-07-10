@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native-reanimated/android/build.gradle b/node_modules/react-native-reanimated/android/build.gradle
+index 6b5e3fc..d9d972d 100644
+--- a/node_modules/react-native-reanimated/android/build.gradle
++++ b/node_modules/react-native-reanimated/android/build.gradle
+@@ -248,6 +248,7 @@ apply plugin: "maven-publish"
+ apply plugin: "de.undercouch.download"
+ 
+ android {
++    android.ndkVersion "25.1.8937393"
+     compileSdkVersion safeExtGet("compileSdkVersion", 30)
+     defaultConfig {
+         minSdkVersion safeExtGet("minSdkVersion", 16)

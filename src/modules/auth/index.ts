@@ -1,3 +1,4 @@
+import CompanyScreening from './company-screening';
 import Login from './login';
 
-export {Login};
+export {CompanyScreening, Login};

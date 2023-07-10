@@ -8,7 +8,7 @@ type PropsLayout = {
 };
 
 const Layout = ({children}: PropsLayout) => {
-  StatusBar.setBarStyle('light-content');
+  StatusBar.setBarStyle('dark-content');
   StatusBar.setTranslucent(true);
   StatusBar.setBackgroundColor('transparent');
 

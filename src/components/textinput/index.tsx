@@ -10,6 +10,11 @@ type PropsCustomTextInput = {
   marginTop?: number;
   marginBottom?: number;
   onChangeText: (value: string) => void;
+  autoFocus?: boolean;
+  maxLength?: number;
+  placeholder?: string;
+  size?: number;
+  isNotEditable?: boolean;
 };
 
 const CustomTextInput = ({
@@ -18,12 +23,21 @@ const CustomTextInput = ({
   keyboardType,
   marginBottom,
   marginTop,
+  autoFocus,
+  maxLength,
+  placeholder,
+  size,
+  isNotEditable,
   onChangeText,
 }: PropsCustomTextInput) => {
   const valueMemoize = useMemo(() => value, [value]);
 
   return (
     <TextInput
+      editable={!isNotEditable}
+      selectTextOnFocus={!isNotEditable}
+      maxLength={maxLength}
+      autoFocus={autoFocus}
       marginTop={marginTop}
       marginBottom={marginBottom}
       keyboardType={keyboardType}
@@ -32,8 +46,12 @@ const CustomTextInput = ({
       onChangeText={onChangeText}
       underlineActiveColor={colors.dark}
       labelColor={colors.dark}
-      placeholderColor={colors.dark}
+      secureTextEntry={label === 'Password'}
+      placeholderColor={'lightgrey'}
       activeColor={colors.dark}
+      placeholder={placeholder}
+      fontFamily={'Poppins-Regular'}
+      fontSize={size ?? 17}
     />
   );
 };

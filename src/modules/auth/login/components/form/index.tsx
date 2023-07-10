@@ -1,29 +1,46 @@
 import {View} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, Text, TextInput} from '@components';
 
 import {styles} from '../../styles';
-import {heightPercentageToDP} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
+import {useLogin} from '../../logic/useLogin';
 
 const Login = () => {
-  const [name, setName] = useState('');
-  const handleInputChange = (value: string) => setName(value);
+  const {
+    username,
+    password,
+    loading,
+    _handleInputChange,
+    _handleInputChangePassword,
+    _sumbitRequest,
+  } = useLogin();
 
   return (
     <View style={styles.containerForm}>
-      <Text type="bold">
-        Hai, masukan email kamu yang sudah didaftarkan oleh penyelenggara
-        aplikasi yaa.
+      <Text type="bold" style={{width: widthPercentageToDP(70)}}>
+        Masukan username dan password yang diberikan oleh admin kamu.
       </Text>
       <TextInput
-        label="Name"
-        value={name}
+        label="Username"
+        value={username}
+        marginTop={20}
+        autoFocus
+        marginBottom={heightPercentageToDP(2)}
+        onChangeText={_handleInputChange}
+        placeholder="Cth: ahakim"
+      />
+      <TextInput
+        label="Password"
+        value={password}
         marginTop={20}
         marginBottom={heightPercentageToDP(5)}
-        onChangeText={handleInputChange}
-        keyboardType="email-address"
+        onChangeText={_handleInputChangePassword}
       />
-      <Button label="Submit" />
+      <Button onPress={_sumbitRequest} label="Submit" isLoading={loading} />
       <View style={styles.footer}>
         <Text type="semibold" size={12}>
           V.1.0.0

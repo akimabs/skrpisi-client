@@ -25,7 +25,8 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@components": ["./src/components/index"]
+      "@components": ["./src/components/index"],
+      "@env": ["./env"]
     }
   },
   "exclude": [
